@@ -27,4 +27,4 @@ probe_size="3"
 each_run=$4
 output_name=${5}
 
-echo ./run.sh $machine $max_cycle $cache_size $cache_asso $cache_line $num_test $vic_num $probe_size $each_run $output_name
+./run.sh $machine $max_cycle $cache_size $cache_asso $cache_line $num_test $vic_num $probe_size $each_run $output_name
