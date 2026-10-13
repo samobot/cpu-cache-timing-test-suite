@@ -1501,7 +1501,7 @@ void print_pre(FILE *fout, int l1_cache_size, int l1_assoc, int l1_cache_line, i
 	fprintf(fout, "double arr5[%d*%d]={0};\n", each_run, num_test/2);
 	fprintf(fout, "double arr6[%d*%d]={0};\n", each_run, num_test/2);
 	
-	fprintf(fout, "char **chain_arr;\n");
+	fprintf(fout, "char *chain_arr;\n");
 	fprintf(fout, "volatile pid_t *maintain_arr;\n");
 	fprintf(fout, "\n");
 
@@ -1681,9 +1681,9 @@ int find_index(int aa[], int num_elements, int value)
 }
 
 
-int main(int argc, char const *argv[])
+int main(int argc, const char *argv[])
 {
-	char* attack_machine = argv[1];
+	const char* attack_machine = argv[1];
 	int max_cycle = atoi(argv[2]);
 	int l1_cache_size = atoi(argv[3]);
 	int l1_assoc = atoi(argv[4]);
@@ -1905,8 +1905,8 @@ int main(int argc, char const *argv[])
 
 
 
-						char* file_name[50];
-						char* plain[50];
+						char file_name[50];
+						char plain[50];
 						if (if_plain){
 							sprintf(plain, "_plain");
 						} else {
@@ -2118,7 +2118,7 @@ int main(int argc, char const *argv[])
 								fprintf(fout, "        maintain_arr[%d]=STEP0_RUN;\n", MUTEX_BOUND/2);
 							}
 
-							void print_timing(if_pre){
+							void print_timing(int if_pre){
 								if (if_pre){
 									fprintf(fout, "  		} \n");
 								}

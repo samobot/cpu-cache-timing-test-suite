@@ -27,10 +27,10 @@ import csv
 import sys
 
 params = {'legend.fontsize': 15,
-          'legend.handlelength': 2,
-          #'legend.frameon': False,
-          'axes.titlesize'      : 18,
-          'axes.labelsize'      : 15}
+		  'legend.handlelength': 2,
+		  #'legend.frameon': False,
+		  'axes.titlesize'      : 18,
+		  'axes.labelsize'      : 15}
 plt.rcParams.update(params)
 
 if ((len(sys.argv))<=1):
@@ -142,152 +142,153 @@ x_hasatt=[]
 grids_hasatt=[]
 
 with open('benchmark_output/wkst10_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row!=[]:
-        	if(row==['222']):
-        		y_wkst10_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_wkst10.append(1+step)
-        		y_wkst10_dup.append(1+step)
-        	else:
-        		y_wkst10.append(0+step)
-        		y_wkst10_dup.append(0+step)
+# with open('benchmark_output/test.output.res','r') as csvfile:
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row!=[]:
+			if(row==['222']):
+				y_wkst10_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_wkst10.append(1+step)
+				y_wkst10_dup.append(1+step)
+			else:
+				y_wkst10.append(0+step)
+				y_wkst10_dup.append(0+step)
 step = step +2
 
 with open('benchmark_output/srv2_onchip_gen_v17_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row!=[]:
-        	if(row==['222']):
-        		y_srv2_onchip_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_srv2_onchip.append(1+step)
-        		y_srv2_onchip_dup.append(1+step)
-        	else:
-        		y_srv2_onchip.append(0+step)
-        		y_srv2_onchip_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row!=[]:
+			if(row==['222']):
+				y_srv2_onchip_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_srv2_onchip.append(1+step)
+				y_srv2_onchip_dup.append(1+step)
+			else:
+				y_srv2_onchip.append(0+step)
+				y_srv2_onchip_dup.append(0+step)
 step = step +2
 
 with open('benchmark_output/srv2_interchip_gen_v17_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row!=[]:
-        	if(row==['222']):
-        		y_srv2_interchip_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_srv2_interchip.append(1+step)
-        		y_srv2_interchip_dup.append(1+step)
-        	else:
-        		y_srv2_interchip.append(0+step)
-        		y_srv2_interchip_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row!=[]:
+			if(row==['222']):
+				y_srv2_interchip_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_srv2_interchip.append(1+step)
+				y_srv2_interchip_dup.append(1+step)
+			else:
+				y_srv2_interchip.append(0+step)
+				y_srv2_interchip_dup.append(0+step)
 step = step +2
 
 with open('benchmark_output/srv1_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-    	if row==[]:
-        	grids.append(counter)
-        	outer_grids.append(outer_counter)
-        else:
-        	if(row==['222']):
-        		y_srv1_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_srv1.append(1+step)
-        		y_srv1_dup.append(1+step)
-        		x.append(counter)
-        		counter = counter + 1
-        	else:
-        		y_srv1.append(0+step)
-        		y_srv1_dup.append(0+step)
-        		x.append(counter)
-        		counter = counter + 1
-        	outer_x.append(outer_counter)
-        	outer_counter = outer_counter + 1
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row==[]:
+			grids.append(counter)
+			outer_grids.append(outer_counter)
+		else:
+			if(row==['222']):
+				y_srv1_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_srv1.append(1+step)
+				y_srv1_dup.append(1+step)
+				x.append(counter)
+				counter = counter + 1
+			else:
+				y_srv1.append(0+step)
+				y_srv1_dup.append(0+step)
+				x.append(counter)
+				counter = counter + 1
+			outer_x.append(outer_counter)
+			outer_counter = outer_counter + 1
 step = step +2
 
 
 with open('benchmark_output/wkst5_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row==['111']:
-        	y_wkst5.append(0+step)#-1)
-        	y_wkst5_dup.append(0+step)#-1)
-        elif row!=[]:
-        	if(row==['222']):
-        		y_wkst5_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_wkst5.append(1+step)
-        		y_wkst5_dup.append(1+step)
-        	else:
-        		y_wkst5.append(0+step)
-        		y_wkst5_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row==['111']:
+			y_wkst5.append(0+step)#-1)
+			y_wkst5_dup.append(0+step)#-1)
+		elif row!=[]:
+			if(row==['222']):
+				y_wkst5_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_wkst5.append(1+step)
+				y_wkst5_dup.append(1+step)
+			else:
+				y_wkst5.append(0+step)
+				y_wkst5_dup.append(0+step)
 step = step +2
 
 
 with open('benchmark_output/broadwell_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row==['111']:
-        	y_broadwell.append(0+step)#-1)
-        	y_broadwell_dup.append(0+step)#-1)
-        elif row!=[]:
-        	if(row==['222']):
-        		y_broadwell_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_broadwell.append(1+step)
-        		y_broadwell_dup.append(1+step)
-        	else:
-        		y_broadwell.append(0+step)
-        		y_broadwell_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row==['111']:
+			y_broadwell.append(0+step)#-1)
+			y_broadwell_dup.append(0+step)#-1)
+		elif row!=[]:
+			if(row==['222']):
+				y_broadwell_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_broadwell.append(1+step)
+				y_broadwell_dup.append(1+step)
+			else:
+				y_broadwell.append(0+step)
+				y_broadwell_dup.append(0+step)
 step = step +2
 
 
 
 with open('benchmark_output/skylake_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-    	if row!=[]:
-        	if(row==['222']):
-        		y_skylake_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_skylake.append(1+step)
-        		y_skylake_dup.append(1+step)
-        	else:
-        		y_skylake.append(0+step)
-        		y_skylake_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row!=[]:
+			if(row==['222']):
+				y_skylake_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_skylake.append(1+step)
+				y_skylake_dup.append(1+step)
+			else:
+				y_skylake.append(0+step)
+				y_skylake_dup.append(0+step)
 step = step +2
 
 with open('benchmark_output/amd_local_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-        if row==['111']:
-        	y_amd_local.append(0+step)#-1)
-        	y_amd_local_dup.append(0+step)#-1)
-        elif row!=[]:
-        	if(row==['222']):
-        		y_amd_local_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_amd_local.append(1+step)
-        		y_amd_local_dup.append(1+step)
-        	else:
-        		y_amd_local.append(0+step)
-        		y_amd_local_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row==['111']:
+			y_amd_local.append(0+step)#-1)
+			y_amd_local_dup.append(0+step)#-1)
+		elif row!=[]:
+			if(row==['222']):
+				y_amd_local_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_amd_local.append(1+step)
+				y_amd_local_dup.append(1+step)
+			else:
+				y_amd_local.append(0+step)
+				y_amd_local_dup.append(0+step)
 step = step +2
 
 
 with open('benchmark_output/amd_amazon_gen_v16_recon_fix.output.res.tran','r') as csvfile:
-    plots = csv.reader(csvfile, delimiter=' ')
-    for row in plots:
-    	if row!=[]:
-        	if(row==['222']):
-        		y_amd_core4_dup.append(-2)
-        	elif(int(row[0], 2)==2):
-        		y_amd_core4.append(1+step)
-        		y_amd_core4_dup.append(1+step)
-        	else:
-        		y_amd_core4.append(0+step)
-        		y_amd_core4_dup.append(0+step)
+	plots = csv.reader(csvfile, delimiter=' ')
+	for row in plots:
+		if row!=[]:
+			if(row==['222']):
+				y_amd_core4_dup.append(-2)
+			elif(int(row[0], 2)==2):
+				y_amd_core4.append(1+step)
+				y_amd_core4_dup.append(1+step)
+			else:
+				y_amd_core4.append(0+step)
+				y_amd_core4_dup.append(0+step)
 step = step +2
 
 
@@ -352,10 +353,10 @@ for i in range(554, 1094):
 	y_or_2.append(y_or[i])
 	x_2.append(x[i]-554)
 
-for i in range(vul_num/2):
+for i in range(vul_num//2):
 	x_single_1.append(i+1)
 	x_single_2.append(i+vul_num/2+1)
-	grids_2.append(grids[i+vul_num/2]-554)
+	grids_2.append(grids[i+vul_num//2]-554)
 
 inner_counter=0
 inner_bound = grids[0]
@@ -403,13 +404,13 @@ for i in range(vul_num):
 # read
 inner_counter=0
 inner_bound = outer_grids[0]
-for i in range(88/2):
+for i in range(88//2):
 	grids_read.append(outer_grids[i]/2)
 	if i!=0:
 		inner_bound = outer_grids[i] - outer_grids[i-1]
 	if (inner_bound==8):
-		for j in range(inner_bound/2):
-			x_read.append(inner_counter/2)
+		for j in range(inner_bound//2):
+			x_read.append(inner_counter//2)
 			y_read[4].append(y_wkst5_dup[inner_counter])
 			y_read[3].append(y_srv1_dup[inner_counter])
 			y_read[1].append(y_srv2_onchip_dup[inner_counter])
@@ -423,9 +424,9 @@ for i in range(88/2):
 			y_read[10].append(y_or_dup[inner_counter])
 			inner_counter = inner_counter + 1+1
 	elif (inner_bound==16):
-		for j in range(inner_bound/4):
-			x_read.append(inner_counter/2)
-			x_read.append(inner_counter/2+1)
+		for j in range(inner_bound//4):
+			x_read.append(inner_counter//2)
+			x_read.append(inner_counter//2+1)
 			y_read[4].extend((y_wkst5_dup[inner_counter], y_wkst5_dup[inner_counter+1]))
 			y_read[3].extend((y_srv1_dup[inner_counter], y_srv1_dup[inner_counter+1]))
 			y_read[1].extend((y_srv2_onchip_dup[inner_counter], y_srv2_onchip_dup[inner_counter+1]))
@@ -443,13 +444,13 @@ for i in range(88/2):
 # write
 inner_counter=0
 inner_bound = outer_grids[0]
-for i in range(88/2):
+for i in range(88//2):
 	grids_write.append(outer_grids[i]/2)
 	if i!=0:
 		inner_bound = outer_grids[i] - outer_grids[i-1]
 	if (inner_bound==8):
-		for j in range(inner_bound/2):
-			x_write.append(inner_counter/2)
+		for j in range(inner_bound//2):
+			x_write.append(inner_counter//2)
 			inner_counter = inner_counter + 1
 			
 			y_write[4].append(y_wkst5_dup[inner_counter])
@@ -465,9 +466,9 @@ for i in range(88/2):
 			y_write[10].append(y_or_dup[inner_counter])
 			inner_counter = inner_counter + 1
 	elif (inner_bound==16):
-		for j in range(inner_bound/4):
-			x_write.append(inner_counter/2)
-			x_write.append(inner_counter/2+1)
+		for j in range(inner_bound//4):
+			x_write.append(inner_counter//2)
+			x_write.append(inner_counter//2+1)
 			inner_counter = inner_counter + 2
 			
 			y_write[4].extend((y_wkst5_dup[inner_counter], y_wkst5_dup[inner_counter+1]))
@@ -487,12 +488,12 @@ for i in range(88/2):
 
 # ccinv
 
-inner_counter=outer_grids[vul_num/2-1]
-for i in range(88/2, 88):
+inner_counter=outer_grids[vul_num//2-1]
+for i in range(88//2, 88):
 	grids_ccinv.append(outer_grids[i]/2)
 	inner_bound = outer_grids[i] - outer_grids[i-1]
 	if (inner_bound==8):
-		for j in range(inner_bound/2):
+		for j in range(inner_bound//2):
 			x_ccinv.append(inner_counter/2)
 			inner_counter = inner_counter + 1
 			
@@ -509,7 +510,7 @@ for i in range(88/2, 88):
 			y_ccinv[10].append(y_or_dup[inner_counter])
 			inner_counter = inner_counter + 1
 	elif (inner_bound==16):
-		for j in range(inner_bound/4):
+		for j in range(inner_bound//4):
 			x_ccinv.append(inner_counter/2)
 			x_ccinv.append(inner_counter/2+1)
 			
@@ -527,12 +528,12 @@ for i in range(88/2, 88):
 			inner_counter = inner_counter + 2 +2
 
 # clflush
-inner_counter=outer_grids[vul_num/2-1]
-for i in range(88/2, 88):
+inner_counter=outer_grids[vul_num//2-1]
+for i in range(88//2, 88):
 	grids_clflush.append(outer_grids[i]/2)
 	inner_bound = outer_grids[i] - outer_grids[i-1]
 	if (inner_bound==8):
-		for j in range(inner_bound/2):
+		for j in range(inner_bound//2):
 			x_clflush.append(inner_counter/2)
 			y_clflush[4].append(y_wkst5_dup[inner_counter])
 			y_clflush[3].append(y_srv1_dup[inner_counter])
@@ -547,7 +548,7 @@ for i in range(88/2, 88):
 			y_clflush[10].append(y_or_dup[inner_counter])
 			inner_counter = inner_counter + 1+1
 	elif (inner_bound==16):
-		for j in range(inner_bound/4):
+		for j in range(inner_bound//4):
 			x_clflush.append(inner_counter/2)
 			x_clflush.append(inner_counter/2+1)
 			inner_counter = inner_counter + 2
@@ -568,7 +569,7 @@ for i in range(88/2, 88):
 # derived for differentiating victim, attacker running on the same (hyper-threading, time-slicing)/diff core, victim running alone cases
 case_arr=[4,3,4,3,4,3,4,3,0,2,0,2,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,4,3,4,3,0,2,0,2,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,4,3,4,3,0,2,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,4,3,4,3,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,0,2,4,3,0,2,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,4,3,0,2,4,3,4,3,4,3,4,3,0,2,4,3,4,3,4,3,0,2,4,3,0,2,4,3,4,3,4,3,0,2,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,0,2,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,0,2,4,3,4,3,4,3,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,0,2,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,0,2,4,3,4,3,4,3,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,0,2,4,3,4,3,4,3,4,3,4,3,0,2,0,2,4,3,4,3,4,3,4,3,0,2,4,3,4,3,4,3,4,3,0,2,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,0,2,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,4,3,0,2,4,3,4,3,0,2,4,3,4,3,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,0,2,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3,4,3]
 
-         
+		 
 # time slicing
 inner_counter_time=0
 inner_counter_hyper=0
@@ -830,20 +831,20 @@ for i in x_single:
 			esa_suc[9]=esa_suc[9]+1
 		if y_or_single[i]==21:
 			esa_suc[10]=esa_suc[10]+1
-print "All the vulnerability types found vulnerable for the machines in paper's order: "
-print all_suc
-print "I-A Vulnerability types found vulnerable for the machines in paper's order: "
-print ia_suc
-print "I-S Vulnerability types found vulnerable for the machines in paper's order: "
-print is_suc
-print "I-SA Vulnerability types found vulnerable for the machines in paper's order: "
-print isa_suc
-print "E-A Vulnerability types found vulnerable for the machines in paper's order: "
-print ea_suc
-print "E-S Vulnerability types found vulnerable for the machines in paper's order: "
-print es_suc
-print "E-SA Vulnerability types found vulnerable for the machines in paper's order: "
-print esa_suc
+print("All the vulnerability types found vulnerable for the machines in paper's order: ")
+print(all_suc)
+print("I-A Vulnerability types found vulnerable for the machines in paper's order: ")
+print(ia_suc)
+print("I-S Vulnerability types found vulnerable for the machines in paper's order: ")
+print(is_suc)
+print("I-SA Vulnerability types found vulnerable for the machines in paper's order: ")
+print(isa_suc)
+print("E-A Vulnerability types found vulnerable for the machines in paper's order: ")
+print(ea_suc)
+print("E-S Vulnerability types found vulnerable for the machines in paper's order: ")
+print(es_suc)
+print("E-SA Vulnerability types found vulnerable for the machines in paper's order: ")
+print(esa_suc)
 
 x_single_plus=[]
 for i in range(len(x_single)):
@@ -1065,22 +1066,22 @@ for i in range(len(x_hasatt)):
 
 #print len_xread, len_xwrite, len_xccinv, len_xclfllush
 
-print "Vulnerability cases using local read as observation steps found vulnerable for the machines in paper's order: "
-print read_suc
-print "Vulnerability cases using local write as observation steps found vulnerable for the machines in paper's order: "
-print write_suc
-print "Vulnerability cases using remote write to invalidate as observation steps found vulnerable for the machines in paper's order: "
-print ccinv_suc
-print "Vulnerability cases using flush as observation steps found vulnerable for the machines in paper's order: "
-print clflush_suc
-print "Vulnerability cases with victim and attacker running time-slicing found vulnerable for the machines in paper's order: "
-print time_suc
-print "Vulnerability cases with victim and attacker running hyper-threading found vulnerable for the machines in paper's order: "
-print hyper_suc
-print "Vulnerability cases with victim and attacker running on different cores found vulnerable for the machines in paper's order: "
-print inner_suc
-print "Vulnerability cases running with victim found vulnerable for the machines in paper's order: "
-print hasatt_suc
+print("Vulnerability cases using local read as observation steps found vulnerable for the machines in paper's order: ")
+print(read_suc)
+print("Vulnerability cases using local write as observation steps found vulnerable for the machines in paper's order: ")
+print(write_suc)
+print("Vulnerability cases using remote write to invalidate as observation steps found vulnerable for the machines in paper's order: ")
+print(ccinv_suc)
+print("Vulnerability cases using flush as observation steps found vulnerable for the machines in paper's order: ")
+print(clflush_suc)
+print("Vulnerability cases with victim and attacker running time-slicing found vulnerable for the machines in paper's order: ")
+print(time_suc)
+print("Vulnerability cases with victim and attacker running hyper-threading found vulnerable for the machines in paper's order: ")
+print(hyper_suc)
+print("Vulnerability cases with victim and attacker running on different cores found vulnerable for the machines in paper's order: ")
+print(inner_suc)
+print("Vulnerability cases running with victim found vulnerable for the machines in paper's order: ")
+print(hasatt_suc)
 
 
 
@@ -1139,7 +1140,7 @@ ax.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 ax.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
 box = ax.get_position()
 ax.set_position([box.x0*1.45, box.y0 + box.height * 0.2,
-                 box.width, box.height * 0.8])
+				 box.width, box.height * 0.8])
 
 plt.savefig("gen_figure/vul_by_type_"+sys.argv[1]+".pdf",bbox_inches='tight')
 #f1.show()
@@ -1220,7 +1221,7 @@ ax.set_yticks([1,3,5,7,9,11,13,15,17,19,21])
 ax.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
 box = ax.get_position()
 ax.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
-                 box.width, box.height * 0.74])
+				 box.width, box.height * 0.74])
 plt.savefig("gen_figure/vul_by_case_"+sys.argv[1]+"_1.pdf",bbox_inches='tight')
 #f2.show()
 
@@ -1253,7 +1254,7 @@ ax.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 ax.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
 box = ax.get_position()
 ax.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
-                 box.width, box.height * 0.74])
+				 box.width, box.height * 0.74])
 
 plt.savefig("gen_figure/vul_by_case_"+sys.argv[1]+"_2.pdf",bbox_inches='tight')
 #f3.show()
@@ -1261,7 +1262,7 @@ plt.savefig("gen_figure/vul_by_case_"+sys.argv[1]+"_2.pdf",bbox_inches='tight')
 #plt.tight_layout()
 #raw_input()
 
-print "Dot figures are export to gen_figure folder."
+print("Dot figures are export to gen_figure folder.")
 
 
 
