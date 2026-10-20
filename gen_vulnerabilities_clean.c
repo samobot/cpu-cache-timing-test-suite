@@ -67,6 +67,7 @@
 #define BROADWELL 6
 #define SKYLAKE 7
 #define AMDLOCAL 8
+#define I7_8650U 9
 
 typedef int bool;
 enum { false, true };
@@ -1740,7 +1741,7 @@ int main(int argc, const char *argv[])
 	    cpu[2]=2;
         cpu[3]=2;
         cpu[4]=1;
-    } else if (vic_machine==SKYLAKE){
+	} else if (vic_machine==SKYLAKE || vic_machine==I7_8650U){
         cpu[0]=3;
         cpu[1]=7;
         cpu[2]=2;
