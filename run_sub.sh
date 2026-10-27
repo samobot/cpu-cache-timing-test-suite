@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #
 # This file run each benchmark code and output results
