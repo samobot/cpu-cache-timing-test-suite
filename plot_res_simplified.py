@@ -75,7 +75,6 @@ f3.set_figwidth(28.3)
 step=0
 for index in range(len(files)):
 	x = []
-	y_dup = []
 	y = []
 	y_1 = []
 	y_2 = []
@@ -83,11 +82,8 @@ for index in range(len(files)):
 	x_2=[]
 	x_single_1 = []
 	x_single_2 = []
-	outer_x=[]
-	outer_grids = []
 	grids = []
 	grids_2 = []
-	outer_counter=0
 	counter=0
 	x_single = []
 	y_single = []
@@ -96,22 +92,17 @@ for index in range(len(files)):
 		for row in plots:
 			if row==[]:
 				grids.append(counter)
-				outer_grids.append(outer_counter)
 			else:
 				if(row==['222']):
-					y_dup.append(-2)
+					continue
 				elif(int(row[0], 2)==2):
 					y.append(1+step)
-					y_dup.append(1+step)
 					x.append(counter)
 					counter = counter + 1
 				else:
 					y.append(0+step)
-					y_dup.append(0+step)
 					x.append(counter)
 					counter = counter + 1
-				outer_x.append(outer_counter)
-				outer_counter = outer_counter + 1
 	
 
 	for i in range(554):
