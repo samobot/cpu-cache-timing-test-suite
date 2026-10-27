@@ -75,7 +75,6 @@ f3.set_figwidth(28.3)
 step=0
 for index in range(len(files)):
 	x = []
-	y_dup = []
 	y = []
 	y_1 = []
 	y_2 = []
@@ -99,15 +98,13 @@ for index in range(len(files)):
 				outer_grids.append(outer_counter)
 			else:
 				if(row==['222']):
-					y_dup.append(-2)
+					continue
 				elif(int(row[0], 2)==2):
 					y.append(1+step)
-					y_dup.append(1+step)
 					x.append(counter)
 					counter = counter + 1
 				else:
 					y.append(0+step)
-					y_dup.append(0+step)
 					x.append(counter)
 					counter = counter + 1
 				outer_x.append(outer_counter)
