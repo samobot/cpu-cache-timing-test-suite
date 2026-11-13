@@ -127,7 +127,7 @@ for index in range(len(files)):
 
 	for i in range(vul_num//2):
 		x_single_1.append(i+1)
-		x_single_2.append(i+vul_num/2+1)
+		x_single_2.append(int(i+vul_num/2+1))
 		grids_2.append(grids[i+vul_num//2]-554)
 
 	inner_counter=0
@@ -184,11 +184,11 @@ fig1.savefig("gen_figure/vul_by_type_"+sys.argv[1]+".pdf",bbox_inches='tight')
 
 ax2.set_xlabel('vulnerabilities')
 ax2.set_ylabel('CPU Type')
-ax2.set_xticks(grids)
+ax2.set_xticks(grids[:44])
 ax2.grid(True, which='major', axis='x',linestyle="--")
 ax2.set_ylim([-0.2,22])
 ax2.set_xlim([-1,554])
-# ax.set_xticklabels(x_single_1)
+ax2.set_xticklabels(x_single_1)
 ax2.set_yticks([1,3,5,7,9,11,13,15,17,19,21])
 ax2.set_yticklabels(names)
 box = ax2.get_position()
