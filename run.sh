@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #
 # This file is the top script file to generate and evaluate benchmark code
