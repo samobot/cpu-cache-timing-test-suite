@@ -40,27 +40,17 @@ if ((len(sys.argv))<=1):
 vul_num=88
 
 # any files input here will be included on the graph, it may need to be made bigger to accomodate more data
-files = ["wkst10_gen_v16_recon_fix.output.res.tran",
-"srv2_onchip_gen_v17_recon_fix.output.res.tran",
-"srv2_interchip_gen_v17_recon_fix.output.res.tran",
-"srv1_gen_v16_recon_fix.output.res.tran", 
-"wkst5_gen_v16_recon_fix.output.res.tran", 
-"broadwell_gen_v16_recon_fix.output.res.tran", 
-"skylake_gen_v16_recon_fix.output.res.tran",
-"amd_local_gen_v16_recon_fix.output.res.tran",
-"amd_amazon_gen_v16_recon_fix.output.res.tran"]
+files = ["ryzen5_2400g.output.res.tran",
+"i7_1195G7.output.res.tran",
+"xeon2650.output.res.tran",
+"i7_8650u.output.res.tran",
+"bcm2711.output.res.tran",]
 
-names = ["Intel Xeon E5-1620", 
-"Intel Xeon E5-2667 on-chip", 
-"Intel Xeon E5-2667 inter-chip", 
-"Intel Xeon E5-2690", 
-"Intel Core i5-4570",  
-"Intel Xeon E5-2686", 
-"Intel Xeon P-8175", 
-"AMD FX-8150", 
-"AMD EPYC 7571", 
-"Found in all tested CPUs", 
-"Found in at least one tested CPU"]
+names = ["AMD Ryzen 5 2400g",
+"Intel I7-1195G7",
+"Intel Xeon 2650 v3",
+"Intel I7-8650U",
+"BCM 2711",]
 
 # values for marker type and color, if there are less colors/markers than files they will loop
 colors = ["b", "g", "m", "c", "#A1887F", "#99004C", "#FF9933", "#FF80AB", "k"]
@@ -174,7 +164,7 @@ ax1.set_xticks(x_single)
 ax1.set_ylim([-0.5,22])
 ax1.set_xlim([-1,88])
 ax1.set_xticklabels(x_single_plus)
-ax1.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
+ax1.set_yticks(range(1, 2*len(names)+1, 2)) #1, 3, 5, 7, 9...
 ax1.set_yticklabels(names)
 box = ax1.get_position()
 ax1.set_position([box.x0*1.45, box.y0 + box.height * 0.2,
@@ -189,7 +179,7 @@ ax2.grid(True, which='major', axis='x',linestyle="--")
 ax2.set_ylim([-0.2,22])
 ax2.set_xlim([-1,554])
 ax2.set_xticklabels(x_single_1)
-ax2.set_yticks([1,3,5,7,9,11,13,15,17,19,21])
+ax2.set_yticks(range(1, 2*len(names)+1, 2)) #1, 3, 5, 7, 9...
 ax2.set_yticklabels(names)
 box = ax2.get_position()
 ax2.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
@@ -203,7 +193,7 @@ ax3.grid(True, which='major', axis='x',linestyle="--")
 ax3.set_ylim([-0.2,22])
 ax3.set_xlim([-1,1094-554])
 ax3.set_xticklabels(x_single_2)
-ax3.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
+ax3.set_yticks(range(1, 2*len(names)+1, 2)) #1, 3, 5, 7, 9...
 ax3.set_yticklabels(names)
 box = ax3.get_position()
 ax3.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
