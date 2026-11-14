@@ -50,6 +50,18 @@ files = ["wkst10_gen_v16_recon_fix.output.res.tran",
 "amd_local_gen_v16_recon_fix.output.res.tran",
 "amd_amazon_gen_v16_recon_fix.output.res.tran"]
 
+names = ["Intel Xeon E5-1620", 
+"Intel Xeon E5-2667 on-chip", 
+"Intel Xeon E5-2667 inter-chip", 
+"Intel Xeon E5-2690", 
+"Intel Core i5-4570",  
+"Intel Xeon E5-2686", 
+"Intel Xeon P-8175", 
+"AMD FX-8150", 
+"AMD EPYC 7571", 
+"Found in all tested CPUs", 
+"Found in at least one tested CPU"]
+
 # values for marker type and color, if there are less colors/markers than files they will loop
 colors = ["b", "g", "m", "c", "#A1887F", "#99004C", "#FF9933", "#FF80AB", "k"]
 markers = ["<", "X", "*", "v", "o", "P", ">", "p", "H"]
@@ -82,11 +94,8 @@ for index in range(len(files)):
 	x_2=[]
 	x_single_1 = []
 	x_single_2 = []
-	outer_x=[]
-	outer_grids = []
 	grids = []
 	grids_2 = []
-	outer_counter=0
 	counter=0
 	x_single = []
 	y_single = []
@@ -95,7 +104,6 @@ for index in range(len(files)):
 		for row in plots:
 			if row==[]:
 				grids.append(counter)
-				outer_grids.append(outer_counter)
 			else:
 				if(row==['222']):
 					continue
@@ -107,8 +115,6 @@ for index in range(len(files)):
 					y.append(0+step)
 					x.append(counter)
 					counter = counter + 1
-				outer_x.append(outer_counter)
-				outer_counter = outer_counter + 1
 	
 
 	for i in range(554):
@@ -121,7 +127,7 @@ for index in range(len(files)):
 
 	for i in range(vul_num//2):
 		x_single_1.append(i+1)
-		x_single_2.append(i+vul_num/2+1)
+		x_single_2.append(int(i+vul_num/2+1))
 		grids_2.append(grids[i+vul_num//2]-554)
 
 	inner_counter=0
@@ -169,7 +175,7 @@ ax1.set_ylim([-0.5,22])
 ax1.set_xlim([-1,88])
 ax1.set_xticklabels(x_single_plus)
 ax1.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
-ax1.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
+ax1.set_yticklabels(names)
 box = ax1.get_position()
 ax1.set_position([box.x0*1.45, box.y0 + box.height * 0.2,
 				 box.width, box.height * 0.8])
@@ -178,13 +184,13 @@ fig1.savefig("gen_figure/vul_by_type_"+sys.argv[1]+".pdf",bbox_inches='tight')
 
 ax2.set_xlabel('vulnerabilities')
 ax2.set_ylabel('CPU Type')
-ax2.set_xticks(grids)
+ax2.set_xticks(grids[:44])
 ax2.grid(True, which='major', axis='x',linestyle="--")
 ax2.set_ylim([-0.2,22])
 ax2.set_xlim([-1,554])
-# ax.set_xticklabels(x_single_1)
+ax2.set_xticklabels(x_single_1)
 ax2.set_yticks([1,3,5,7,9,11,13,15,17,19,21])
-ax2.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
+ax2.set_yticklabels(names)
 box = ax2.get_position()
 ax2.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
 				 box.width, box.height * 0.74])
@@ -198,7 +204,7 @@ ax3.set_ylim([-0.2,22])
 ax3.set_xlim([-1,1094-554])
 ax3.set_xticklabels(x_single_2)
 ax3.set_yticks([1,3,5,7,9,11,13,15,17,19,21])#1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])
-ax3.set_yticklabels(["Intel Xeon E5-1620", "Intel Xeon E5-2667 on-chip", "Intel Xeon E5-2667 inter-chip", "Intel Xeon E5-2690", "Intel Core i5-4570",  "Intel Xeon E5-2686", "Intel Xeon P-8175", "AMD FX-8150", "AMD EPYC 7571", "Found in all tested CPUs", "Found in at least one tested CPU" ])
+ax3.set_yticklabels(names)
 box = ax3.get_position()
 ax3.set_position([box.x0*1.5, box.y0 + box.height * 0.26,
 				 box.width, box.height * 0.74])

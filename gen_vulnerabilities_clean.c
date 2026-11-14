@@ -67,6 +67,7 @@
 #define BROADWELL 6
 #define SKYLAKE 7
 #define AMDLOCAL 8
+#define RYZEN_5_2400G 9
 
 typedef int bool;
 enum { false, true };
@@ -1746,7 +1747,7 @@ int main(int argc, const char *argv[])
         cpu[2]=2;
         cpu[3]=6;
         cpu[4]=5;
-    } else if (vic_machine==AMDLOCAL){
+    } else if (vic_machine==AMDLOCAL || vic_machine==RYZEN_5_2400G){
 		cpu[0]=5;
 		cpu[1]=5;
 		cpu[2]=7;
@@ -2184,7 +2185,7 @@ int main(int argc, const char *argv[])
 									if(skip_case==1){
 										//
 									}
-									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL)){
+									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL || vic_machine==RYZEN_5_2400G)){
 										//
 									}
 									else { 
@@ -2196,7 +2197,7 @@ int main(int argc, const char *argv[])
 									if(skip_case==1){
 										fprintf(fout, "     fprintf(fp_res, \"222\\n\");\n");
 									}
-									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL)){
+									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL || vic_machine==RYZEN_5_2400G)){
 										fprintf(fout, "     fprintf(fp_res, \"111\\n\");\n");
 									}
 									else { 
@@ -2210,7 +2211,7 @@ int main(int argc, const char *argv[])
 									if(skip_case==1){
 										//
 									}
-									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL)){
+									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL || vic_machine==RYZEN_5_2400G)){
 										//
 									}
 									else { 
@@ -2221,7 +2222,7 @@ int main(int argc, const char *argv[])
 									if(skip_case==1){
 										fprintf(fout, "     fprintf(fp_res, \"222\\n\");\n");
 									}
-									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL)){
+									else if(affinity_rel==0 && (vic_machine==WKST5 || vic_machine==BROADWELL || vic_machine==AMDLOCAL || vic_machine==RYZEN_5_2400G)){
 										fprintf(fout, "     fprintf(fp_res, \"111\\n\");\n");
 									}
 									else { 

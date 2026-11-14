@@ -1,5 +1,5 @@
 lines_to_sanitize = []
-input_filename = "i7_8650u"
+input_filename = "i7_1195G7"
 
 f1 = open("benchmark_output/broadwell_gen_v16_recon_fix.output.res.tran")
 f2 = open("benchmark_output/"+input_filename+".output.res")
