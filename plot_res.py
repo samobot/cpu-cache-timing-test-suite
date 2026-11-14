@@ -1212,7 +1212,7 @@ plt.plot(x_1,y_and_1, label='Vulnerabilities Found in all tested CPUs (and resul
 plt.plot(x_1,y_or_1, label='Vulnerabilities Found in at least one tested CPU (or result)', linestyle="",color='r',marker="o", markersize=2)
 plt.xlabel('vulnerabilities')
 plt.ylabel('CPU Type')
-ax.set_xticks(grids)
+ax.set_xticks(grids[:44])
 ax.grid(True, which='major', axis='x',linestyle="--")
 ax.set_ylim([-0.2,22])
 ax.set_xlim([-1,554])
