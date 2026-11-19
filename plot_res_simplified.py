@@ -58,9 +58,7 @@ names = ["Intel Xeon E5-1620",
 "Intel Xeon E5-2686", 
 "Intel Xeon P-8175", 
 "AMD FX-8150", 
-"AMD EPYC 7571", 
-"Found in all tested CPUs", 
-"Found in at least one tested CPU"]
+"AMD EPYC 7571"]
 
 # values for marker type and color, if there are less colors/markers than files they will loop
 colors = ["b", "g", "m", "c", "#A1887F", "#99004C", "#FF9933", "#FF80AB", "k"]
